@@ -1,14 +1,12 @@
 import React from 'react';
-import Header from './components/Header';
+import { Routes, Route } from 'react-router-dom';
 import PostData from './components/PostData';
 
 function App() {
   return (
-    <div>
-      <h1>test</h1>
-      <PostData />
-      < Header />
-    </div>
+    <Routes>
+      <Route index element={<PostData />} />
+    </Routes>
   );
 }
 
