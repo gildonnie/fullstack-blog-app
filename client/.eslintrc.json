@@ -20,6 +20,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+      "linebreak-style": ["error", "unix"],
         "import/extensions": [
             "error",
             "always",
