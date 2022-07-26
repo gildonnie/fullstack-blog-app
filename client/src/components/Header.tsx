@@ -7,6 +7,7 @@ const HeaderWraper = styled.div`
   background: gray;
   color: white;
   font-size: 30px;
+  
 `;
 
 
