@@ -22,7 +22,7 @@ function Posts({ posts }: { posts: Post[] }) {
             {title}
           </h1>
           <section key={id}>
-            <p>{body.slice(0, 300)}</p>
+            <p>{body}</p>
             <ReadMore onClick={() => navigate(`/fullPost/${id}`)} onKeyPress={() => navigate(`/fullPost/${id}`)} role="button" tabIndex={0}> Read More... </ReadMore>
           </section>
         </ArticlePost>
