@@ -9,7 +9,7 @@ function PostData() {
   useEffect(() => {
     axios.get('http://localhost:3000/posts')
       .then((response: AxiosResponse) => {
-        console.log(response.data);
+        // console.log(response.data);
         setPosts(response.data);
       });
   }, []);

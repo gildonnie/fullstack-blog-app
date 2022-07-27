@@ -1,6 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-function fullPost() {
+type FullPostProps = {
+  id: number;
+  title: string;
+  body: string;
+}
+
+function fullPost({ id, title, body }: FullPostProps) {
+  useEffect(() => {
+    console.log(id, title, body);
+  }, []);
+
   return (
     <div>fullPost</div>
   );
