@@ -14,7 +14,7 @@ const FooterWrapper = styled.footer`
     text-align: center;
   }
   h2 {
-    color: blue;
+    /* color: blue; */
     text-align: start;
   }
 `;
