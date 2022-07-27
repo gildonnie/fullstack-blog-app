@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Catagorywrapperr = styled.footer`
+const Catagorywrapper = styled.footer`
   color: lightblue;
   padding: 1rem 0;
   margin-right: 100px;
@@ -24,7 +24,7 @@ const Catagory = (event) => {
     setCatagory(event.target.value);
   };
   return (
-    <Catagorywrapperr>
+    <Catagorywrapper>
       <h3>VIEW CATEGORY</h3>
       <form>
         <div className="CatagoryInput">
@@ -48,7 +48,7 @@ const Catagory = (event) => {
         </div>
         <button type="submit">ADD.. CATAGORY</button>
       </form>
-    </Catagorywrapperr>
+    </Catagorywrapper>
   );
 };
 
