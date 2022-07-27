@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import AddPost from './AddPost';
 import { Post } from '../types';
 
 const ArticlePost = styled.article`
@@ -27,6 +28,7 @@ function Posts({ posts }: { posts: Post[] }) {
           </section>
         </ArticlePost>
       ))}
+      <AddPost />
     </>
   );
 }
