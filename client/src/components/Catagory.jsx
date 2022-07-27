@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Catagorywrapperr = styled.footer`
-  color: #fefefe;
+  color: lightblue;
   padding: 1rem 0;
   margin-right: 100px;
   text-align: center;
