@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
-import AddPost from './AddPost';
+import { Link, useNavigate } from 'react-router-dom';
 import { Post } from '../types';
 
 const ArticlePost = styled.article`
@@ -19,16 +18,24 @@ function Posts({ posts }: { posts: Post[] }) {
     <>
       {posts.map(({ id, title, body }: Post) => (
         <ArticlePost>
-          <h1>
-            {title}
-          </h1>
-          <section key={id}>
-            <p>{body}</p>
-            <ReadMore onClick={() => navigate(`/fullPost/${id}`)} onKeyPress={() => navigate(`/fullPost/${id}`)} role="button" tabIndex={0}> Read More... </ReadMore>
-          </section>
+          <Link
+            to={`/fullpost/${id}`}
+            state={{
+              id,
+              title,
+              body,
+            }}
+          >
+            <h1>
+              {title}
+            </h1>
+            <section key={id}>
+              <p>{body}</p>
+              <ReadMore onClick={() => navigate(`/fullpost/${id}`)} onKeyPress={() => navigate(`/fullpost/${id}`)} role="button" tabIndex={0}> Read More... </ReadMore>
+            </section>
+          </Link>
         </ArticlePost>
       ))}
-      <AddPost />
     </>
   );
 }
