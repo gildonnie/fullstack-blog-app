@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import AddPostPage from './pages/AddPostPage';
 import PostDetails from './pages/PostDetails';
 import NotFound from './pages/NotFound';
+import Layout from './pages/Layout'
 
 function App() {
   return (
