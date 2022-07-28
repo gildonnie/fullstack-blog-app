@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Headers = styled.div`
@@ -31,7 +32,7 @@ function Header() {
           <a href=" Veiw Post"> Veiw Post</a>
         </li>
         <li>
-          <a href="Add Post"> Add Post</a>
+          <Link to="/addpost"> Add Post</Link>
         </li>
       </ul>
     </Headers>
