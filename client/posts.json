@@ -19,6 +19,11 @@
       "id": "362f583a-00b0-4afb-8c39-6c8ca10888df",
       "title": "Title 3",
       "body": "Added new Post"
+    },
+    {
+      "id": "963866ac-18ac-4be3-aab8-63eeeebeceda",
+      "title": "Testing Post route",
+      "body": "testing route body"
     }
   ]
 }
