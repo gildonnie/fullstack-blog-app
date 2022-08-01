@@ -19,12 +19,15 @@ const FooterWrapper = styled.footer`
   }
 `;
 
-const Footer = () => {
+function Footer() {
   return (
     <FooterWrapper>
-      <h2> By Jesus Quezada,Donnie Gil,Betelihem A Hayle © {new Date().getFullYear()}</h2>
+      <h2>
+        By Jesus Quezada,Donnie Gil,Betelihem A Hayle ©
+        {new Date().getFullYear()}
+      </h2>
     </FooterWrapper>
   );
-};
+}
 
 export default Footer;
