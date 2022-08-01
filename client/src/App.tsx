@@ -1,7 +1,8 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PostData from './components/PostData';
-// import FullPost from './pages/fullPost';
+// import Layout from './pages/Layout';
+import FullPost from './pages/fullPost';
 
 // run this command first: json-server --watch posts.json
 // then run this command second: npm start
@@ -11,7 +12,8 @@ function App() {
   return (
     <Routes>
       <Route index element={<PostData />} />
-      {/* <Route path="/fullPost/:id" element={<FullPost />} /> */}
+      <Route path="/fullPost/:id" element={<FullPost />} />
+
     </Routes>
   );
 }

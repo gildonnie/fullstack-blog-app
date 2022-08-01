@@ -1,18 +1,34 @@
-import React, { useEffect } from 'react';
+import axios, { AxiosResponse } from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-type FullPostProps = {
+type PostData = {
   id: number;
-  title: string;
   body: string;
+  title: string;
 }
 
-function fullPost({ id, title, body }: FullPostProps) {
-  useEffect(() => {
-    console.log(id, title, body);
-  }, []);
+function fullPost() {
+  const { id } = useParams();
+  const [data, setData] = useState<PostData>();
 
+  useEffect(() => {
+    axios.get(`http://localhost:3000/posts/${id}`)
+      .then((response: AxiosResponse) => {
+        console.log(response.data);
+        setData(response.data);
+      });
+  }, [id]);
+  useEffect(() => {
+    if (data) {
+      console.log(data);
+    }
+  });
   return (
-    <div>fullPost</div>
+    <div>
+      <h1>{data && data.title}</h1>
+      <p>{data && data.body}</p>
+    </div>
   );
 }
 

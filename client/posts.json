@@ -1,14 +1,29 @@
 {
-    "posts":[
-       {
-          "id":1,
-          "title":"Post title 1",
-          "body":"Post body 1"
-       },
-       {
-          "id":2,
-          "title":"Post title 2",
-          "body":"Post body 2"
-       }
-    ]
- }
+  "posts": [
+    {
+      "id": 1,
+      "title": "Post title 1",
+      "body": "Post body 1"
+    },
+    {
+      "id": 2,
+      "title": "Post title 2",
+      "body": "Post body 2"
+    },
+    {
+      "id": "d48d5559-b497-4c1c-8c08-9853433b77f8",
+      "title": "New Title",
+      "body": "My body"
+    },
+    {
+      "id": "362f583a-00b0-4afb-8c39-6c8ca10888df",
+      "title": "Title 3",
+      "body": "Added new Post"
+    },
+    {
+      "id": "d53411de-3eb4-4208-9a95-b035873c7181",
+      "title": "",
+      "body": "Add your bodys content here"
+    }
+  ]
+}
