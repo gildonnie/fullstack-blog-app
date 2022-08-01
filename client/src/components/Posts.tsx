@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
 import { Post } from '../types';
+import Catagory from './Catagory';
+import Footer from './Footer';
 
 const ArticlePost = styled.article`
   border: 1px solid black;
@@ -36,6 +38,8 @@ function Posts({ posts }: { posts: Post[] }) {
           </Link>
         </ArticlePost>
       ))}
+      <Catagory />
+      < Footer />
     </>
   );
 }
