@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-const url = 'http://localhost:3001';
+const url = 'http://localhost:3000/posts';
 
 export const getCatagory = createAsyncThunk(
     'catagory/getCatagory',
@@ -25,7 +25,6 @@ export const catagorySlice = createSlice({
       extraReducers(builder) {
         builder
         .addCase(getCatagory.fulfilled, (state, { payload }) => {
-            state.loading = false;
             state.value = payload;
           })
         }
