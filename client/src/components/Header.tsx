@@ -29,7 +29,7 @@ function Header() {
       <h1>Fullstack-React-Blog</h1>
       <ul>
         <li>
-          <a href=" Veiw Post"> Veiw Post</a>
+          <Link to="/"> Veiw Posts</Link>
         </li>
         <li>
           <Link to="/addpost"> Add Post</Link>
