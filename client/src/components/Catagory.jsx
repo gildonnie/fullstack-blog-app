@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const Catagorywrapper = styled.footer`
+const Catagorywrapper = styled.div`
   color: lightblue;
   padding: 1rem 0;
   margin-right: 100px;
   text-align: center;
-  .CatagoryInput{
-    width: 100px;
-  }
+
   button {
     margin: 0.25rem 0;
-    width: 100%;
   }
   h3{
-    color:black;
+    color: black;
   }
 `;
 function Catagory() {

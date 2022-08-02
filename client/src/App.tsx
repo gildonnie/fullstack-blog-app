@@ -5,6 +5,8 @@ import PostData from './components/PostData';
 import FullPost from './pages/fullPost';
 import NotFound from './pages/NotFound';
 import AddPostPage from './pages/AddPostPage';
+import Header from './components/Header';
+import EditPage from './pages/EditPage';
 
 // run this command first: json-server --watch posts.json
 // then run this command second: npm start
@@ -12,13 +14,16 @@ import AddPostPage from './pages/AddPostPage';
 
 function App() {
   return (
-    <Routes>
-      <Route index element={<PostData />} />
-      <Route path="/fullPost/:id" element={<FullPost />} />
-      <Route path="/addpost" element={<AddPostPage />} />
-      <Route path="*" element={<NotFound />} />
-
-    </Routes>
+    <>
+      <Header />
+      <Routes>
+        <Route index element={<PostData />} />
+        <Route path="/fullPost/:id" element={<FullPost />} />
+        <Route path="/addpost" element={<AddPostPage />} />
+        <Route path="/editpage/:id" element={<EditPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
   );
 }
 
