@@ -15,14 +15,14 @@ function Posts({ posts }: { posts: Post[] }) {
   return (
     <>
       <Header />
-      {posts.map(({ id, title, body }: Post) => (
+      {posts.map(({ _id, title, body }: Post) => (
         <ArticlePost>
           <h1>
             {title}
           </h1>
-          <section key={id}>
+          <section key={_id}>
             <p>{body}</p>
-            <Link to={`/fullPost/${id}`} state={{ ...posts }}>Read More...</Link>
+            <Link to={`/fullPost/${_id}`} state={{ ...posts }}>Read More...</Link>
           </section>
         </ArticlePost>
       ))}

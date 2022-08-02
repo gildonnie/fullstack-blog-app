@@ -7,10 +7,10 @@ function PostData() {
   const [posts, setPosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    axios.get('http://localhost:3000/posts')
+    axios.get('http://localhost:5000/blog/posts')
       .then((response: AxiosResponse) => {
-        console.log(response.data);
-        setPosts(response.data);
+        console.log(response.data.posts);
+        setPosts(response.data.posts);
       });
   }, []);
   return (
