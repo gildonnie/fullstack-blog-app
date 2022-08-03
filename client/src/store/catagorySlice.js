@@ -1,3 +1,4 @@
+
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -29,7 +30,3 @@ export const catagorySlice = createSlice({
           })
         }
     });
-
-    export const { setCatagory } = catagorySlice.actions;
-
-export default catagorySlice.reducer;

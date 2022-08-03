@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,FormEvent } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
@@ -22,7 +22,7 @@ function Catagory() {
   const [catagory, setCatagory] = useState('All');
 
   const handleChange = (event) => {
-    setCatagory(event.target.value);
+    setCatagory(e.target.value);
   };
   return (
     <Catagorywrapper>
@@ -31,8 +31,8 @@ function Catagory() {
         <div className="CatagoryInput">
           <select value={catagory} onChange={handleChange}>
             <option>All</option>
-            <option>Pirate</option>
-            <option>Publick</option>
+            <option>Privet</option>
+            <option>Public</option>
             <option>Ketten</option>
           </select>
         </div>
