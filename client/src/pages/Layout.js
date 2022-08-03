@@ -36,7 +36,7 @@ display: flex;
 flex-direction: row;
 height: 100vh;
 `;
-const Layout = () => {
+function Layout() {
   return (
     <>
       <GlobalStyle />
@@ -50,6 +50,6 @@ const Layout = () => {
       </Wrapper>
     </>
   );
-};
+}
 
 export default Layout;

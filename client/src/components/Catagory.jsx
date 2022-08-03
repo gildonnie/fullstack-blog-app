@@ -18,8 +18,8 @@ const Catagorywrapper = styled.footer`
     color:black;
   }
 `;
-const Catagory = (event) => {
-  const [Catagory, setCatagory] = useState('All');
+function Catagory() {
+  const [catagory, setCatagory] = useState('All');
 
   const handleChange = (event) => {
     setCatagory(event.target.value);
@@ -29,7 +29,7 @@ const Catagory = (event) => {
       <h3>VIEW CATEGORY</h3>
       <form>
         <div className="CatagoryInput">
-          <select value={Catagory} onChange={handleChange}>
+          <select value={catagory} onChange={handleChange}>
             <option>All</option>
             <option>Pirate</option>
             <option>Publick</option>
@@ -51,6 +51,6 @@ const Catagory = (event) => {
       </form>
     </Catagorywrapper>
   );
-};
+}
 
 export default Catagory;
