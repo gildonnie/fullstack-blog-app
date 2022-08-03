@@ -4,8 +4,9 @@ import { useParams } from 'react-router-dom';
 
 type PostData = {
   id: number;
-  body: string;
   title: string;
+  content: string;
+  category?: string;
 }
 
 function EditPage() {
@@ -13,19 +14,31 @@ function EditPage() {
   const [data, setData] = useState<PostData>();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/posts/${id}`)
+    axios.get(`http://localhost:5000/blog/posts/${id}`)
       .then((response: AxiosResponse) => {
         console.log(response.data);
         setData(response.data);
       });
   }, [id]);
-  useEffect(() => {
-    if (data) {
-      console.log(data);
-    }
-  });
+
   return (
-    <div>editpage </div>
+    <>
+      <div>
+        <form>
+          <label htmlFor="Title">
+            Edit
+            <input
+              id="Title"
+              type="text"
+              value={data && data.title}
+            />
+          </label>
+          <textarea value={data && data.content} />
+        </form>
+      </div>
+      <button type="submit">Update</button>
+      <button type="submit">Delete</button>
+    </>
   );
 }
 

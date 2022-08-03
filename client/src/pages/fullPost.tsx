@@ -20,11 +20,7 @@ function fullPost() {
         setData(response.data);
       });
   }, [id]);
-  useEffect(() => {
-    if (data) {
-      console.log(data);
-    }
-  });
+
   return (
     <div>
       <h1>{data && data.title}</h1>

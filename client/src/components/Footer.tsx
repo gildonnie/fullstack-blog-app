@@ -5,9 +5,12 @@ const FooterWrapper = styled.footer`
   text-align: center;
   background-color: grey;
   padding: 0.8rem 1.7rem;
-  width: auto;
+  width: 100%;
   position: absolute;
   bottom: 0;
+  padding-right: 0px;
+  padding-left: 0px;
+
   h4 {
     font-family: cursive;
     color: green;

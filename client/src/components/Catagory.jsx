@@ -4,9 +4,9 @@ import styled from 'styled-components';
 const Catagorywrapper = styled.div`
   color: lightblue;
   padding: 1rem 0;
-  margin-right: 100px;
+  margin-right: 1rem;
+  margin-top: 7rem;
   text-align: center;
-
   button {
     margin: 0.25rem 0;
   }
