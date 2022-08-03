@@ -3,17 +3,20 @@
     {
       "id": 1,
       "title": "Post title 1",
-      "body": "Post body 1"
+      "body": "Post body 1",
+      "categories":"Deep thoughet"
     },
     {
       "id": 2,
       "title": "Post title 2",
-      "body": "Post body 2"
+      "body": "Post body 2",
+      "categories":"Tech Tips "
     },
     {
       "id": "d48d5559-b497-4c1c-8c08-9853433b77f8",
       "title": "New Title",
-      "body": "My body"
+      "body": "My body",
+      "categories":"Kittens"
     },
     {
       "id": "362f583a-00b0-4afb-8c39-6c8ca10888df",
