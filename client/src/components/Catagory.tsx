@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import styled from 'styled-components';
 
 const Catagorywrapper = styled.div`
-  color: lightblue;
   padding: 1rem 0;
   margin-right: 1rem;
   margin-top: 7rem;
@@ -10,14 +9,22 @@ const Catagorywrapper = styled.div`
   button {
     margin: 0.25rem 0;
   }
-  h3{
-    color: black;
+  input {
+    border-radius: 2px;
+    select {
+      width: 11rem;
+      border-radius: 3px;
+      text-align: center;
+    }
+  }
+  button {
+    margin-top: 1rem;
   }
 `;
 function Catagory() {
   const [catagory, setCatagory] = useState('All');
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setCatagory(event.target.value);
   };
   return (

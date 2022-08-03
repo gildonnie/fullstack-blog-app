@@ -6,18 +6,21 @@ const Headers = styled.div`
 
   display: flex;
   justify-content: space-between;
-  background-color: gray;
+  background-color: #202327;
+  .logo {
+    margin-top: 1rem;
+    margin-left: 2rem;
+    font-size: 25px;
+  }
     ul {
       list-style: none;
       display: flex;
         li{
           margin-top: .5rem;
           margin-right: 3rem;
-          font-size: 27px;
+          font-size: 15px;
           list-style: none;
-            a{
-              text-decoration: none;
-            }
+            
         }
     }
   
@@ -26,7 +29,7 @@ const Headers = styled.div`
 function Header() {
   return (
     <Headers>
-      <h1>Fullstack-React-Blog</h1>
+      <Link className="logo" to="/">JDB Blog</Link>
       <ul>
         <li>
           <Link to="/"> Veiw Posts</Link>

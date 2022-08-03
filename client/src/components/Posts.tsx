@@ -8,18 +8,16 @@ import Footer from './Footer';
 const PostWrapper = styled.div`
   display: grid;
   grid-template-columns: 2fr 1fr;
+  margin-bottom: 1rem;
 `;
 const ArticlePost = styled.article`
   margin-left: 20rem;
   margin-top: 1rem;
   max-width: 90%;
-  border: 1px solid black;
+  border: 1px solid #2F3336;
   margin-bottom: 1rem;
   text-decoration: none;
   text-align: center;
-  a:link { 
-    text-decoration: none;
-  }
 `;
 function Posts({ posts }: { posts: Post[] }) {
   return (
@@ -35,7 +33,10 @@ function Posts({ posts }: { posts: Post[] }) {
                 </Link>
               </h1>
               <section key={_id}>
-                <p>{content}</p>
+                <p>
+                  {content.slice(0, 200)}
+                  ...
+                </p>
                 <Link to={`/fullPost/${_id}`} state={{ ...posts }}>Read More...</Link>
               </section>
             </ArticlePost>

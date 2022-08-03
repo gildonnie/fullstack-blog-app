@@ -3,22 +3,15 @@ import styled from 'styled-components';
 
 const FooterWrapper = styled.footer`
   text-align: center;
-  background-color: grey;
+  background-color: #202327;
   padding: 0.8rem 1.7rem;
   width: 100%;
-  position: absolute;
+  position: relative;
   bottom: 0;
   padding-right: 0px;
   padding-left: 0px;
-
-  h4 {
-    font-family: cursive;
-    color: green;
-    margin: 20px;
-    text-align: center;
-  }
   h2 {
-    text-align: start;
+    text-align: center;
   }
 `;
 

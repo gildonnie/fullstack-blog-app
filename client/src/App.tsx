@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import AddPostPage from './pages/AddPostPage';
 import Header from './components/Header';
 import EditPage from './pages/EditPage';
+import GlobalStyle from './globalStyles';
 
 // run this command first: json-server --watch posts.json
 // then run this command second: npm start
@@ -15,6 +16,7 @@ import EditPage from './pages/EditPage';
 function App() {
   return (
     <>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route index element={<PostData />} />
