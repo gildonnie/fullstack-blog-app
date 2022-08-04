@@ -1,20 +1,24 @@
 import React, { ChangeEvent, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Catagory, setCatagory} from '../store/catagorySlice';
- import styled from 'styled-components';
+import styled from 'styled-components';
+import { Post } from '../types';
+import { getCatagory, setCatagory} from '../store/catagorySlice';
 const Catagorywrapper = styled.div`
   color: lightblue;
   padding: 1rem 0;
   margin-right: 100px;
   text-align: center;
-  .CatagoryInput{
-    width: 100px;
-  }
+  byCtagory{
+    color:black;
+  };
+  newCatagory{
+    color:black;
+  };
   button {
     margin: 0.25rem 0;
     width: 100%;
   }
-  h3{
+  h1{
     color:black;
   }
 `;
@@ -24,13 +28,14 @@ function Catagory() {
   const [newCatagory, setNewCatagory] = useState('');
   const [selectedCatagory, setSelectedCatagory] = useState('');
   const dispatch = useDispatch();
-  const catagory = useSelector(Catagory);
+  const catagory = useSelector(getCatagory);
 
   useEffect(() => {
     const response = async () => {
       const res = await fetch('http://localhost:3000/post/catagories/');
       const data = await res.json();
       setCatagories(data);
+      console.log(data)
     };
     response();
   }, []);
@@ -49,19 +54,19 @@ function Catagory() {
 
   return (
     <Catagorywrapper>
-      <div>
+      <div className='byCtagory'>
         <h1>View By Catagory</h1>
         <select onChange={handleCatagory}>
           <option value="">All</option>
           {catagories.map((kitten: string) => {
             return <option key={kitten}>{kitten}</option>;
-          })}
+          })} 
         </select>
         <button type="button" onClick={viewCatagoryPosts}>
           View Catagory Post
         </button>
       </div>
-      <div>
+      <div className='newCatagory'>
         <h1>Add New Catagory</h1>
         <input
           type="Catagory Name"
