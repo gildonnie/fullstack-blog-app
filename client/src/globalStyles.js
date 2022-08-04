@@ -30,6 +30,12 @@ const GlobalStyle = createGlobalStyle`
       left: 5px;
     }
   }
+  input {
+    background: #AFB9C5;
+  }
+  textarea {
+    background: #AFB9C5;
+  }
 `;
 
 export default GlobalStyle;

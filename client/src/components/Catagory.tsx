@@ -15,6 +15,7 @@ const Catagorywrapper = styled.div`
       width: 11rem;
       border-radius: 3px;
       text-align: center;
+      background: #AFB9C5;
     }
   }
   button {
