@@ -15,14 +15,7 @@ function AddPost() {
       const { data } = await axios.post<Post>(
         'http://localhost:5000/blog/post',
         { title: `${title}`, content: `${content}`, category: `${category}` },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-        },
       );
-      console.log(JSON.stringify(data, null, 4));
       navigate('/', { replace: true });
       return data;
     } catch (error) {
@@ -30,7 +23,6 @@ function AddPost() {
         console.log('error message: ', error.message);
         return error.message;
       }
-      console.log('unexpected error: ', error);
       return 'An unexpected error occurred';
     }
   };

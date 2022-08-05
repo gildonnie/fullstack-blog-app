@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import PostData from './components/PostData';
+import Home from './pages/Home';
 // import Layout from './pages/Layout';
 import FullPost from './pages/fullPost';
 import NotFound from './pages/NotFound';
@@ -17,7 +17,7 @@ function App() {
     <>
       <Header />
       <Routes>
-        <Route index element={<PostData />} />
+        <Route index element={<Home />} />
         <Route path="/fullPost/:id" element={<FullPost />} />
         <Route path="/addpost" element={<AddPostPage />} />
         <Route path="/editpage/:id" element={<EditPage />} />

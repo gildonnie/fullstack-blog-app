@@ -50,10 +50,19 @@ const updatePost = (req, res) => {
     });
   };
 
+const deletePost = (req, res) => {
+    Post.findByIdAndDelete(req.params.id, (err, deletedCity) => {
+      if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+
+      res.json(deletedCity);
+    });
+  };
+
 module.exports = {
     getPosts,
     showPost,
     createPost,
     updatePost,
+    deletePost,
 };
   

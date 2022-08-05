@@ -15,6 +15,8 @@ router.get('/posts/:id', postsController.showPost);
 router.post('/post', postsController.createPost);
 // PUT /blog/post will be handled right now
 router.put('/posts/:id', postsController.updatePost);
+// DELETE /blog/post will be handled right now
+router.delete('/posts/:id', postsController.deletePost);
 
 
 // export the router

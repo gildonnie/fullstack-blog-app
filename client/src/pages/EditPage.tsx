@@ -3,16 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Post } from '../types';
 
-type PostData = {
-  id: number;
-  title: string;
-  content: string;
-  category?: string;
-}
-
 function EditPage() {
   const { id } = useParams();
-  const [postData, setPostData] = useState<PostData>();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
@@ -21,8 +13,6 @@ function EditPage() {
   useEffect(() => {
     axios.get(`http://localhost:5000/blog/posts/${id}`)
       .then((response: AxiosResponse) => {
-        console.log(response.data);
-        setPostData(response.data);
         setTitle(response.data.title);
         setContent(response.data.content);
         setCategory(response.data.category);
@@ -44,18 +34,28 @@ function EditPage() {
     setCategory(enteredName);
   };
 
-  const handleUpdateSubmit = async (event: React.MouseEvent<HTMLElement>) => {
+  const updatePost = async (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
     try {
       const { data } = await axios.put<Post>(
         `http://localhost:5000/blog/posts/${id}`,
         { title: `${title}`, content: `${content}`, category: `${category}` },
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-          },
-        },
+      );
+      navigate('/', { replace: true });
+      return data;
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        return error.message;
+      }
+      return 'An unexpected error occurred';
+    }
+  };
+
+  const deletePost = async (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    try {
+      const { data } = await axios.delete<Post>(
+        `http://localhost:5000/blog/posts/${id}`,
       );
       navigate('/', { replace: true });
       return data;
@@ -99,8 +99,8 @@ function EditPage() {
           </label>
         </form>
       </div>
-      <button type="submit" onClick={handleUpdateSubmit}>Update</button>
-      <button type="submit">Delete</button>
+      <button type="submit" onClick={updatePost}>Update</button>
+      <button type="submit" onClick={deletePost}>Delete</button>
     </>
   );
 }

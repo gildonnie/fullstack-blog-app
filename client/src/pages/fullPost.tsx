@@ -16,7 +16,6 @@ function fullPost() {
   useEffect(() => {
     axios.get(`http://localhost:5000/blog/posts/${id}`)
       .then((response: AxiosResponse) => {
-        console.log(response.data);
         setData(response.data);
       });
   }, [id]);
