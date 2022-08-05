@@ -10,14 +10,12 @@ const router = express.Router();
 
 // GET /blog/posts will be handled right now
 router.get('/posts', postsController.getPosts);
-//
 router.get('/posts/:id', postsController.showPost);
-
-
 // POST /blog/post will be handled right now
 router.post('/post', postsController.createPost);
-// POST /blog/post will be handled right now
-// router.post('/post', postsController.createPost);
+// PUT /blog/post will be handled right now
+router.put('/posts/:id', postsController.updatePost);
+
 
 // export the router
 module.exports = router;

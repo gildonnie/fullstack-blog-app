@@ -42,9 +42,18 @@ const createPost = (req, res, next) => {
     .catch(err => console.log('err', err));
   }
 
+const updatePost = (req, res) => {
+    Post.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, updatedPost) => {
+      if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
+  
+      res.json(updatedPost);
+    });
+  };
+
 module.exports = {
     getPosts,
     showPost,
     createPost,
+    updatePost,
 };
   
