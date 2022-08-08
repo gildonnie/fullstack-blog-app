@@ -1,8 +1,14 @@
 import React, { ChangeEvent, useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import axios, { AxiosResponse } from 'axios';
+import {useAppSelector, useAppDispatch} from '../store/hooks'
+import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
-import { Post } from '../types';
+// import ErrorBoundary from '../ErrorBoundary';
+// import Posts from './Posts';
+//  import { Post } from '../types';
 import { getCatagory, setCatagory} from '../store/catagorySlice';
+import { RootState } from '../store';
 const Catagorywrapper = styled.div`
   color: lightblue;
   padding: 1rem 0;
@@ -27,18 +33,34 @@ function Catagory() {
   const [catagories, setCatagories] = useState([]);
   const [newCatagory, setNewCatagory] = useState('');
   const [selectedCatagory, setSelectedCatagory] = useState('');
-  const dispatch = useDispatch();
-  const catagory = useSelector(getCatagory);
+  const dispatch = useAppDispatch();
+  // const catagory = useSelector(getCatagory);
+  const { Catagory } = useAppSelector((state: RootState) => state.catagory, shallowEqual);
 
   useEffect(() => {
-    const response = async () => {
-      const res = await fetch('http://localhost:3000/post/catagories/');
-      const data = await res.json();
-      setCatagories(data);
-      console.log(data)
-    };
-    response();
+    dispatch(getCatagory());
+  },[dispatch])
+  useEffect(() =>{
+    console.log(Catagory)
+  })
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/catagories/')
+      .then((response: AxiosResponse) => {
+        console.log(response.data);
+        setCatagories(response.data);
+      });
   }, []);
+
+  // useEffect(() => {
+  //   const response = async () => {
+  //     const res = await fetch('http://localhost:3000/post/');
+  //     const data = await res.json();
+  //     setCatagories(data);
+  //     console.log(data)
+  //   };
+  //   response();
+  // }, []);
 
   const handleCatagory = (e: ChangeEvent<HTMLSelectElement>) => {
     setSelectedCatagory(e.target.value);
@@ -58,9 +80,11 @@ function Catagory() {
         <h1>View By Catagory</h1>
         <select onChange={handleCatagory}>
           <option value="">All</option>
-          {catagories.map((kitten: string) => {
-            return <option key={kitten}>{kitten}</option>;
-          })} 
+          {catagories && Object. values(catagories).map((kitten) => {
+            return <option key={uuidv4()}>{kitten}</option>;
+            // <option  key={index}>{index.id}</option>;
+          })}
+
         </select>
         <button type="button" onClick={viewCatagoryPosts}>
           View Catagory Post

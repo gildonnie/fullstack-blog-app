@@ -1,6 +1,7 @@
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from './index';
+// import type { RootState } from './index';
+import type { RootState } from '../store/index'
 
 type catagoryTypes = {
   Catagory: string;
@@ -14,7 +15,7 @@ export const catagorySlice = createSlice({
   name: 'Catagory',
   initialState,
   reducers: {
-    Catagory: (state) => {
+    getCatagory: (state) => {
       return state;
     },
     
@@ -24,8 +25,8 @@ export const catagorySlice = createSlice({
   },
 });
 
-export const { Catagory, setCatagory } = catagorySlice.actions;
+export const { getCatagory, setCatagory } = catagorySlice.actions;
 
-export const getCatagory = (state: RootState) => state;
+// export const getCatagory = (state: RootState) => state;
 
 export default catagorySlice.reducer;
