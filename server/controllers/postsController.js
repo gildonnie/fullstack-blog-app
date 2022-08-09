@@ -10,6 +10,16 @@ const getPosts = (req, res, next) => {
     });
   }
 
+const getCategories = (req, res, next) => {
+    // return array of existing categories
+    Post.find({}, { category: 1 }).then(foundCategories => {
+      res.json({
+        message: "All Categories",
+        categories: foundCategories
+      });
+    });
+  }
+
 const showPost = (req, res) => {
    Post.findById(req.params.id, (err, foundPost) => {
       if (err) return res.status(400).json({status: 400, error: 'Something went wrong, please try again'});
@@ -60,6 +70,7 @@ const deletePost = (req, res) => {
 
 module.exports = {
     getPosts,
+    getCategories,
     showPost,
     createPost,
     updatePost,
