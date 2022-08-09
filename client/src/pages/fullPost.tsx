@@ -1,33 +1,28 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
-type PostData = {
-  id: number;
-  body: string;
-  title: string;
-}
+import { Post } from '../types';
 
 function fullPost() {
   const { id } = useParams();
-  const [data, setData] = useState<PostData>();
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const [category, setCategory] = useState('');
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/posts/${id}`)
+    axios.get<Post>(`http://localhost:5000/blog/posts/${id}`)
       .then((response: AxiosResponse) => {
-        console.log(response.data);
-        setData(response.data);
+        setTitle(response.data.title);
+        setContent(response.data.content);
+        setCategory(response.data.category);
       });
   }, [id]);
-  useEffect(() => {
-    if (data) {
-      console.log(data);
-    }
-  });
+
   return (
     <div>
-      <h1>{data && data.title}</h1>
-      <p>{data && data.body}</p>
+      <h1>{title}</h1>
+      <p>{content}</p>
+      <p>{category}</p>
     </div>
   );
 }
