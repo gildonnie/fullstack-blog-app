@@ -4,7 +4,7 @@ import axios, { AxiosResponse } from 'axios';
 import {useAppSelector, useAppDispatch} from '../store/hooks'
 import { useParams, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
- import { Post } from '../types';
+ import { CategoryData } from '../types';
 import { getCatagory, setCatagory} from '../store/catagorySlice';
 import { RootState } from '../store';
 const Catagorywrapper = styled.div`
@@ -28,8 +28,8 @@ const Catagorywrapper = styled.div`
 `;
 
 function Catagory() {
-  const { id } = useParams();
-  const [catagories, setCatagories] = useState([]);
+  const { _id } = useParams();
+  const [catagories, setCatagories] = useState<any[]>([]);
   const [newCatagory, setNewCatagory] = useState('');
   const [selectedCatagory, setSelectedCatagory] = useState('');
   const dispatch = useAppDispatch();
@@ -44,12 +44,14 @@ function Catagory() {
   })
 
   useEffect(() => {
-    axios.get('http://localhost:5000/blog/categories')
+    axios.get<CategoryData>('http://localhost:5000/blog/categories')
       .then((response: AxiosResponse) => {
-        console.log(response.data);
-        setCatagories(response.data.posts);
+        console.log(response.data.categories);
+        setCatagories(response.data.categories);
+        for (let category of catagories) { console.log(category) }
       });
   }, []);
+
 
   // useEffect(() => {
   //   const response = async () => {
@@ -79,12 +81,15 @@ function Catagory() {
         <h1>View By Catagory</h1>
         <select onChange={handleCatagory}>
           <option value="">All</option>
-          {catagories && catagories.map((kitten) => {
-            return <option key={id}>{kitten}</option>;
-            // <option  key={index}>{index.id}</option>;
+          {catagories.map((v) => {
+            console.log(v._id)
+            return <option key={v._id}>{v.catagories}</option>;
+          
           })}
+           {/* {for (let category of catagories) {category }} */}
 
         </select>
+        
         <button type="button" onClick={viewCatagoryPosts}>
           View Catagory Post
         </button>
