@@ -8,18 +8,22 @@ import backgroundImg from './IMGs/background.jpg';
 
 const PostWrapper = styled.div`
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 80% 20%;
   margin-bottom: 1rem;
 `;
 const ArticlePost = styled.article`
   background: #202327;
-  margin-left: 20rem;
-  margin-top: 1rem;
-  max-width: 90%;
+  margin-left: 5rem;
+  margin-top: 2rem;
+  min-width: 20rem;
+  min-height: 20rem;
   border: 1px solid #2F3336;
   margin-bottom: 1rem;
   text-decoration: none;
-  text-align: center;
+  text-align: center;  
+  h1 {
+    font-family: 'Cutive Mono', monospace;
+  }
 `;
 const BackIMG = styled.div`
   background-image: url(${backgroundImg});
@@ -35,6 +39,10 @@ const BackIMG = styled.div`
     font-size: 60px;
     font-family: 'Cutive Mono', monospace;
   }
+`;
+const WrapperPost = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 
 `;
 function Posts({ posts }: { posts: Post[] }) {
@@ -42,7 +50,7 @@ function Posts({ posts }: { posts: Post[] }) {
     <>
       <BackIMG><h1>JBD Blog</h1></BackIMG>
       <PostWrapper>
-        <div>
+        <WrapperPost>
           {posts.map(({ _id, title, content }: Post) => (
 
             <ArticlePost>
@@ -60,7 +68,7 @@ function Posts({ posts }: { posts: Post[] }) {
               </section>
             </ArticlePost>
           ))}
-        </div>
+        </WrapperPost>
         <Catagory />
       </PostWrapper>
       <Footer />

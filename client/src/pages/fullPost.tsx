@@ -5,13 +5,16 @@ import styled from 'styled-components';
 
 const FullPost = styled.div`
   text-align: center;
-  // border: 1px solid gray;
-  max-width: 75%;
-  margin: auto;
-  margin-top: 3rem;
-  background: #202327;
+  
+  padding-right: 25%;
+  padding-left: 25%;
+  margin-right: auto;
+  margin-left: auto;
+  h1 {
+    font-family: 'Cutive Mono', monospace;
+  }
   p {
-
+    line-height: 39px; 
   }
 `;
 
@@ -38,7 +41,7 @@ function fullPost() {
     <FullPost>
       <h1>{data && data.title}</h1>
       <p>{data && data.content}</p>
-      <p>{ data && data.category }</p>
+      {/* <p>{ data && data.category }</p> */}
     </FullPost>
   );
 }
