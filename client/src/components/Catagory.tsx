@@ -44,7 +44,7 @@ function Catagory() {
   })
 
   useEffect(() => {
-    axios.get('http://localhost:5000/blog/posts')
+    axios.get('http://localhost:5000/blog/categories')
       .then((response: AxiosResponse) => {
         console.log(response.data);
         setCatagories(response.data.posts);
