@@ -1,7 +1,36 @@
 import axios, { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import styled from 'styled-components';
 import { Post } from '../types';
+
+const EditWrap = styled.div`
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+align-content: center;
+align-items: center;
+h1 {
+  text-align: center;
+}
+textarea {
+  min-width: 80%;
+  min-height: 40rem;
+}
+label {
+  margin: 1rem;
+  input {
+    border-radius: 3px;
+  }
+}
+`;
+
+// type PostData = {
+//   id: number;
+//   title: string;
+//   content: string;
+//   category?: string;
+// }
 
 function EditPage() {
   const { id } = useParams();
@@ -68,40 +97,38 @@ function EditPage() {
   };
 
   return (
-    <>
-      <div>
-        <form>
-          <label htmlFor="Title">
-            Edit
-            <input
-              id="Title"
-              type="text"
-              value={title}
-              onChange={changeTitle}
-            />
-          </label>
-          <label htmlFor="Content">
-            Content
-            <textarea
-              id="Content"
-              value={content}
-              onChange={changeContent}
-            />
-          </label>
-          <label htmlFor="Category">
-            Edit
-            <input
-              id="Category"
-              type="text"
-              value={category}
-              onChange={changeCategory}
-            />
-          </label>
-        </form>
-      </div>
+    <EditWrap>
+      <form>
+        <label htmlFor="Title">
+          Edit
+          <input
+            id="Title"
+            type="text"
+            value={title}
+            onChange={changeTitle}
+          />
+        </label>
+        <label htmlFor="Content">
+          Content
+          <textarea
+            id="Content"
+            value={content}
+            onChange={changeContent}
+          />
+        </label>
+        <label htmlFor="Category">
+          Edit
+          <input
+            id="Category"
+            type="text"
+            value={category}
+            onChange={changeCategory}
+          />
+        </label>
+      </form>
       <button type="submit" onClick={updatePost}>Update</button>
       <button type="submit" onClick={deletePost}>Delete</button>
-    </>
+    </EditWrap>
   );
 }
 
