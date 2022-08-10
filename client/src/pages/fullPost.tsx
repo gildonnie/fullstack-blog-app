@@ -18,14 +18,6 @@ const FullPost = styled.div`
     line-height: 39px; 
   }
 `;
-
-// type PostData = {
-//   id: number;
-//   title: string;
-//   content: string;
-//   category?: string;
-// }
-
 function fullPost() {
   const { id } = useParams();
   const [title, setTitle] = useState('');

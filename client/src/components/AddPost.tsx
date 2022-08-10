@@ -19,6 +19,7 @@ const Wrap = styled.div`
   }
   label {
     margin: 1rem;
+    font-family: 'Cutive Mono', monospace;
   }
   button {
 
@@ -52,7 +53,7 @@ function AddPost() {
     <form onSubmit={handleFormSubmit}>
       <Wrap>
         <label htmlFor="AddTitle">
-          Add a Title
+          Title
           <input
             id="AddTitle"
             type="text"
@@ -63,7 +64,7 @@ function AddPost() {
 
         <textarea value={content} placeholder="Add your content here" onChange={(e) => setContent(e.target.value)} />
         <label htmlFor="AddCategory">
-          Add a Category
+          Category
           <input
             id="AddCategory"
             type="text"

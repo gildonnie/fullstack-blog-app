@@ -24,14 +24,6 @@ label {
   }
 }
 `;
-
-// type PostData = {
-//   id: number;
-//   title: string;
-//   content: string;
-//   category?: string;
-// }
-
 function EditPage() {
   const { id } = useParams();
   const [title, setTitle] = useState('');

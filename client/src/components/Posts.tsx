@@ -8,7 +8,7 @@ import backgroundImg from './IMGs/background.jpg';
 
 const PostWrapper = styled.div`
   display: grid;
-  grid-template-columns: 80% 20%;
+  grid-template-columns: 70% 30%;
   margin-bottom: 1rem;
 `;
 const ArticlePost = styled.article`
@@ -19,10 +19,18 @@ const ArticlePost = styled.article`
   min-height: 20rem;
   border: 1px solid #2F3336;
   margin-bottom: 1rem;
-  text-decoration: none;
   text-align: center;  
+  position: relative;
   h1 {
     font-family: 'Cutive Mono', monospace;
+  }
+  .readmore {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 1rem;
+  }
+  a {
+    color: #5d858f;
   }
 `;
 const BackIMG = styled.div`
@@ -64,7 +72,7 @@ function Posts({ posts }: { posts: Post[] }) {
                   {content.slice(0, 200)}
                   ...
                 </p>
-                <Link to={`/fullPost/${_id}`} state={{ ...posts }}>Read More...</Link>
+                <Link className="readmore" to={`/fullPost/${_id}`} state={{ ...posts }}>Read More...</Link>
               </section>
             </ArticlePost>
           ))}

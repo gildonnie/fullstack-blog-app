@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Catagorywrapper = styled.div`
   padding: 1rem 0;
-  margin-right: 1rem;
+  margin-left: 10%;
   margin-top: 7rem;
   text-align: center;
   button {
