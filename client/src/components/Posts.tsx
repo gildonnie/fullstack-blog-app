@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Catagory from './Catagory';
+import Category from './Category';
 import { Post } from '../types';
-import Footer from './Footer';
 
 const PostWrapper = styled.div`
   display: grid;
@@ -23,12 +22,11 @@ const ArticlePost = styled.article`
 `;
 function Posts({ posts }: { posts: Post[] }) {
   return (
-    <>
-      <PostWrapper>
-        <div>
-          {posts.map(({ _id, title, content }: Post) => (
+    <PostWrapper>
+      <div>
+        {posts.map(({ _id, title, content }: Post) => (
 
-            <ArticlePost>
+          <ArticlePost>
               <h1>
                 <Link to={`/editpage/${_id}`} state={{ ...posts }}>
                   {title}
@@ -38,14 +36,11 @@ function Posts({ posts }: { posts: Post[] }) {
                 <p>{content}</p>
                 <Link to={`/fullPost/${_id}`} state={{ ...posts }}>Read More...</Link>
               </section>
-            </ArticlePost>
-          ))}
-        </div>
-        <Catagory />
-      </PostWrapper>
-      <Footer />
-
-    </>
+          </ArticlePost>
+        ))}
+      </div>
+      <Category />
+    </PostWrapper>
   );
 }
 

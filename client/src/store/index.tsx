@@ -1,18 +1,18 @@
 // import { configureStore } from '@reduxjs/toolkit';
-// import catagoryReducer from './catagorySlice';
+// import categoryReducer from './categorySlice';
 // export default configureStore({
 //     reducer: {
-//         catagory: catagoryReducer
+//         category: categoryReducer
 //     },
 // });
 
 // import React from 'react';
 import { configureStore } from '@reduxjs/toolkit';
-import catagoryReducer from './catagorySlice';
+import categoryReducer from './categorySlice';
 
 export const store = configureStore({
   reducer: {
-    catagory: catagoryReducer,
+    category: categoryReducer,
   },
 });
 
