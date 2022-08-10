@@ -8,10 +8,7 @@ import AddPostPage from './pages/AddPostPage';
 import Header from './components/Header';
 import EditPage from './pages/EditPage';
 import GlobalStyle from './globalStyles';
-
-// run this command first: json-server --watch posts.json
-// then run this command second: npm start
-// It should prompt you to start a new port. Enter Y / Yes
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -25,6 +22,7 @@ function App() {
         <Route path="/editpage/:id" element={<EditPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer />
     </>
   );
 }

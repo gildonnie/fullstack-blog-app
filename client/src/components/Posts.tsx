@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Catagory from './Catagory';
+import Category from './Category';
 import { Post } from '../types';
-import Footer from './Footer';
 import backgroundImg from './IMGs/background.jpg';
 
 const PostWrapper = styled.div`
@@ -69,9 +68,8 @@ function Posts({ posts }: { posts: Post[] }) {
             </ArticlePost>
           ))}
         </WrapperPost>
-        <Catagory />
+        <Category />
       </PostWrapper>
-      <Footer />
     </>
   );
 }

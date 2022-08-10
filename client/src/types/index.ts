@@ -4,3 +4,7 @@ export type Post = {
     content: string;
     category?: string;
   };
+  export type CategoryData = {
+    _id: number;
+    category?: string;
+  };
