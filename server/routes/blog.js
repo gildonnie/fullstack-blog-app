@@ -11,6 +11,8 @@ const router = express.Router();
 // GET /blog/posts will be handled right now
 router.get('/posts', postsController.getPosts);
 router.get('/posts/:id', postsController.showPost);
+// GET /blog/categories will be handled right now
+router.get('/categories', postsController.getCategories);
 // POST /blog/post will be handled right now
 router.post('/post', postsController.createPost);
 // PUT /blog/post will be handled right now

@@ -19,10 +19,12 @@ const GlobalStyle = createGlobalStyle`
     background-color: #202327;
     border: solid 1px gray;
     margin-left: 10px;
+    color: white;
   }
   textarea {
     background-color: #202327;
     border: solid 1px  black;
+    color: white;
   }
 `;
 

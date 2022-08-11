@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Catagory from './Catagory';
+import Category from './Category';
 import { Post } from '../types';
-import Footer from './Footer';
 import backgroundImg from './IMGs/background.jpg';
 
 const PostWrapper = styled.div`
@@ -25,9 +24,15 @@ const ArticlePost = styled.article`
     font-family: 'Cutive Mono', monospace;
   }
   .readmore {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 1rem;
+    display: felx;
+    justify-content: center;
+
+    a {
+      bottom: 0;
+      margin-bottom: 1rem;
+      position: absolute;
+    }
+    
   }
   a {
     color: #5d858f;
@@ -67,19 +72,18 @@ function Posts({ posts }: { posts: Post[] }) {
                   {title}
                 </Link>
               </h1>
-              <section key={_id}>
+              <section className="readmore" key={_id}>
                 <p>
                   {content.slice(0, 200)}
                   ...
                 </p>
-                <Link className="readmore" to={`/fullPost/${_id}`} state={{ ...posts }}>Read More...</Link>
+                <Link to={`/fullPost/${_id}`} state={{ ...posts }}>Read More...</Link>
               </section>
             </ArticlePost>
           ))}
         </WrapperPost>
-        <Catagory />
+        <Category />
       </PostWrapper>
-      <Footer />
     </>
   );
 }
