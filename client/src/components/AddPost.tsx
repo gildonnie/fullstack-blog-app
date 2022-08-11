@@ -1,11 +1,34 @@
 import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
 import { Post } from '../types';
+
+const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+  h1 {
+    text-align: center;
+  }
+  textarea {
+    min-width: 80%;
+    min-height: 40rem;
+  }
+  label {
+    margin: 1rem;
+    font-family: 'Cutive Mono', monospace;
+  }
+  button {
+
+  }
+`;
 
 function AddPost() {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('Add your content here');
+  const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
   const navigate = useNavigate();
 
@@ -28,9 +51,9 @@ function AddPost() {
   };
   return (
     <form onSubmit={handleFormSubmit}>
-      <div>
+      <Wrap>
         <label htmlFor="AddTitle">
-          Add a Title:
+          Title
           <input
             id="AddTitle"
             type="text"
@@ -38,13 +61,10 @@ function AddPost() {
             onChange={(e) => setTitle(e.target.value)}
           />
         </label>
-      </div>
-      <div>
-        <textarea value={content} onChange={(e) => setContent(e.target.value)} />
-      </div>
-      <div>
+
+        <textarea value={content} placeholder="Add your content here" onChange={(e) => setContent(e.target.value)} />
         <label htmlFor="AddCategory">
-          Add a Category:
+          Category
           <input
             id="AddCategory"
             type="text"
@@ -52,8 +72,8 @@ function AddPost() {
             onChange={(e) => setCategory(e.target.value)}
           />
         </label>
-      </div>
-      <button type="submit">ADD POST</button>
+        <button type="submit">ADD POST</button>
+      </Wrap>
     </form>
   );
 }

@@ -7,11 +7,13 @@ import NotFound from './pages/NotFound';
 import AddPostPage from './pages/AddPostPage';
 import Header from './components/Header';
 import EditPage from './pages/EditPage';
+import GlobalStyle from './globalStyles';
 import Footer from './components/Footer';
 
 function App() {
   return (
     <>
+      <GlobalStyle />
       <Header />
       <Routes>
         <Route index element={<Home />} />

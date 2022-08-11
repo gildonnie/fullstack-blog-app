@@ -1,3 +1,6 @@
+/* eslint-disable no-underscore-dangle */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-shadow */
 import React, { ChangeEvent, useState, useEffect } from 'react';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import axios, { AxiosResponse } from 'axios';
@@ -9,22 +12,26 @@ import { getCategory, setCategory } from '../store/categorySlice';
 import { RootState } from '../store';
 
 const Categorywrapper = styled.div`
-  color: lightblue;
   padding: 1rem 0;
-  margin-right: 100px;
+  margin-left: 10%;
+  margin-top: 7rem;
   text-align: center;
-  byCtagory{
-    color:black;
-  };
-  newCatagory{
-    color:black;
-  };
   button {
     margin: 0.25rem 0;
-    width: 100%;
   }
-  h1{
-    color:black;
+  input {
+    border-radius: 2px;
+    select {
+      width: 11rem;
+      border-radius: 3px;
+      text-align: center;
+      background: #AFB9C5;
+    }
+  }
+  button {
+    margin-top: 1rem;
+    display: flex;
+    margin-left: 8rem;
   }
 `;
 
@@ -61,7 +68,7 @@ function Category() {
 
   return (
     <Categorywrapper>
-      <div className='byCtagory'>
+      <div className="byCtagory">
         <h1>View By Catagory</h1>
         <select onChange={handleCategory}>
           <option value="">All</option>
@@ -73,7 +80,7 @@ function Category() {
           })}
         </select>
         <button type="button" onClick={viewCategoryPosts}>
-          View Category Post
+          View Category
         </button>
       </div>
       <div className="newCatagory">
