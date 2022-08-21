@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { useUpdatePostMutation } from '../services/api';
+import { useUpdatePostMutation, useDeletePostMutation } from '../services/api';
 
 const EditWrap = styled.div`
 display: flex;
@@ -31,6 +31,7 @@ function EditPage() {
   const [category, setCategory] = useState('');
   const navigate = useNavigate();
   const [updatePost] = useUpdatePostMutation();
+  const [deletePost] = useDeletePostMutation();
 
   useEffect(() => {
     setTitle(state.title);
@@ -65,21 +66,13 @@ function EditPage() {
     navigate('/', { replace: true });
     window.location.reload(false);
   };
-  // const deletePost = async (event: React.MouseEvent<HTMLElement>) => {
-  //   event.preventDefault();
-  //   try {
-  //     const { data } = await axios.delete<Post>(
-  //       `http://localhost:5000/blog/posts/${id}`,
-  //     );
-  //     navigate('/', { replace: true });
-  //     return data;
-  //   } catch (error) {
-  //     if (axios.isAxiosError(error)) {
-  //       return error.message;
-  //     }
-  //     return 'An unexpected error occurred';
-  //   }
-  // };
+
+  const handleDeletePost = (event: React.MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    deletePost(id);
+    navigate('/', { replace: true });
+    window.location.reload(false);
+  };
 
   return (
     <EditWrap>
@@ -112,7 +105,7 @@ function EditPage() {
         </label>
       </form>
       <button type="submit" onClick={handleUpdatePost}>Update</button>
-      {/* <button type="submit" onClick={deletePost}>Delete</button> */}
+      <button type="submit" onClick={handleDeletePost}>Delete</button>
     </EditWrap>
   );
 }

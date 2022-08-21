@@ -17,15 +17,23 @@ export const postsApi = createApi({
               id, title, content, category,
             },
           ) => ({
-            url: `posts/${id}`,
+            url: `/posts/${id}`,
             method: 'PUT',
             body: {
               id, title, content, category,
             },
           }),
         }),
+    deletePost: builder.mutation<Api, string>({
+      query: (
+        id: string,
+      ) => ({
+        url: `/posts/${id}`,
+        method: 'DELETE',
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components
-export const { useGetPostsQuery, useUpdatePostMutation } = postsApi;
+export const { useGetPostsQuery, useUpdatePostMutation, useDeletePostMutation } = postsApi;
