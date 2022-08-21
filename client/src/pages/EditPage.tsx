@@ -1,9 +1,7 @@
-import axios, { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import { useUpdatePostMutation } from '../services/api';
-import { Post } from '../types';
 
 const EditWrap = styled.div`
 display: flex;
@@ -27,20 +25,18 @@ label {
 `;
 function EditPage() {
   const { id } = useParams();
+  const { state } = useLocation();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
   const navigate = useNavigate();
-  // const [updatePost] = useUpdatePostMutation();
+  const [updatePost] = useUpdatePostMutation();
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/blog/posts/${id}`)
-      .then((response: AxiosResponse) => {
-        setTitle(response.data.title);
-        setContent(response.data.content);
-        setCategory(response.data.category);
-      });
-  }, [id]);
+    setTitle(state.title);
+    setContent(state.content);
+    setCategory(state.category);
+  }, [id, state]);
 
   const changeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     const enteredName = event.target.value;
@@ -57,38 +53,33 @@ function EditPage() {
     setCategory(enteredName);
   };
 
-  const updatePost = async (event: React.MouseEvent<HTMLElement>) => {
+  const handleUpdatePost = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
-    try {
-      const { data } = await axios.put<Post>(
-        `http://localhost:5000/blog/posts/${id}`,
-        { title: `${title}`, content: `${content}`, category: `${category}` },
-      );
-      navigate('/', { replace: true });
-      return data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        return error.message;
-      }
-      return 'An unexpected error occurred';
-    }
+    const post = {
+      id,
+      title,
+      content,
+      category,
+    };
+    updatePost(post);
+    navigate('/', { replace: true });
+    window.location.reload(false);
   };
-
-  const deletePost = async (event: React.MouseEvent<HTMLElement>) => {
-    event.preventDefault();
-    try {
-      const { data } = await axios.delete<Post>(
-        `http://localhost:5000/blog/posts/${id}`,
-      );
-      navigate('/', { replace: true });
-      return data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        return error.message;
-      }
-      return 'An unexpected error occurred';
-    }
-  };
+  // const deletePost = async (event: React.MouseEvent<HTMLElement>) => {
+  //   event.preventDefault();
+  //   try {
+  //     const { data } = await axios.delete<Post>(
+  //       `http://localhost:5000/blog/posts/${id}`,
+  //     );
+  //     navigate('/', { replace: true });
+  //     return data;
+  //   } catch (error) {
+  //     if (axios.isAxiosError(error)) {
+  //       return error.message;
+  //     }
+  //     return 'An unexpected error occurred';
+  //   }
+  // };
 
   return (
     <EditWrap>
@@ -120,8 +111,8 @@ function EditPage() {
           />
         </label>
       </form>
-      <button type="submit" onClick={updatePost}>Update</button>
-      <button type="submit" onClick={deletePost}>Delete</button>
+      <button type="submit" onClick={handleUpdatePost}>Update</button>
+      {/* <button type="submit" onClick={deletePost}>Delete</button> */}
     </EditWrap>
   );
 }

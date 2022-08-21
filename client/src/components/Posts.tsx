@@ -73,7 +73,7 @@ function Posts() {
           ) => (
             <ArticlePost key={_id}>
               <h1>
-                <Link to={`/editpage/${_id}`} state={{ ...data.posts }}>
+                <Link to={`/editpage/${_id}`} state={{ title, content, category }}>
                   {title}
                 </Link>
               </h1>

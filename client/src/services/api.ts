@@ -3,10 +3,11 @@ import type { Api } from '../types';
 
 export const postsApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000/blog' }),
-  tagTypes: [],
+  tagTypes: ['Api'],
   endpoints: (builder) => ({
     getPosts: builder.query<Api, undefined>({
       query: () => '/posts',
+      providesTags: ['Api'],
     }),
     updatePost: builder.mutation<Api, { id: string; title: string;
         content: string;

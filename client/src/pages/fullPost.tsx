@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { useUpdatePostMutation } from '../services/api';
 
 const FullPost = styled.div`
   text-align: center;
@@ -18,17 +17,9 @@ const FullPost = styled.div`
   }
 `;
 
-interface StateType {
-  title: { pathname: string };
-  content: { pathname: string };
-  category: { pathname: string };
-}
-
 function fullPost() {
   const { id } = useParams();
-  const { state } = useLocation<StateType>();
-
-  const [updatePost] = useUpdatePostMutation();
+  const { state } = useLocation();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
