@@ -1,8 +1,7 @@
-import axios, { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import styled from 'styled-components';
-import { Post } from '../types';
+import { useUpdatePostMutation } from '../services/api';
 
 const FullPost = styled.div`
   text-align: center;
@@ -18,20 +17,27 @@ const FullPost = styled.div`
     line-height: 39px; 
   }
 `;
+
+interface StateType {
+  title: { pathname: string };
+  content: { pathname: string };
+  category: { pathname: string };
+}
+
 function fullPost() {
   const { id } = useParams();
+  const { state } = useLocation<StateType>();
+
+  const [updatePost] = useUpdatePostMutation();
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
 
   useEffect(() => {
-    axios.get<Post>(`http://localhost:5000/blog/posts/${id}`)
-      .then((response: AxiosResponse) => {
-        setTitle(response.data.title);
-        setContent(response.data.content);
-        setCategory(response.data.category);
-      });
-  }, [id]);
+    setTitle(state.title);
+    setContent(state.content);
+    setCategory(state.category);
+  }, [id, state]);
 
   return (
     <FullPost>

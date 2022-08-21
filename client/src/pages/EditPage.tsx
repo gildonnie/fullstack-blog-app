@@ -2,6 +2,7 @@ import axios, { AxiosResponse } from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import styled from 'styled-components';
+import { useUpdatePostMutation } from '../services/api';
 import { Post } from '../types';
 
 const EditWrap = styled.div`
@@ -30,6 +31,7 @@ function EditPage() {
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
   const navigate = useNavigate();
+  // const [updatePost] = useUpdatePostMutation();
 
   useEffect(() => {
     axios.get(`http://localhost:5000/blog/posts/${id}`)

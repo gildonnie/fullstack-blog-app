@@ -66,8 +66,12 @@ function Posts() {
       <BackIMG><h1>JBD Blog</h1></BackIMG>
       <PostWrapper>
         <WrapperPost>
-          { data ? (data.posts.map(({ _id, title, content }) => (
-            <ArticlePost>
+          { data ? (data.posts.map((
+            {
+              _id, title, content, category,
+            },
+          ) => (
+            <ArticlePost key={_id}>
               <h1>
                 <Link to={`/editpage/${_id}`} state={{ ...data.posts }}>
                   {title}
@@ -78,7 +82,7 @@ function Posts() {
                   {content.slice(0, 200)}
                   ...
                 </p>
-                <Link to={`/fullPost/${_id}`} state={{ ...data.posts }}>Read More...</Link>
+                <Link to={`/fullPost/${_id}`} state={{ title, content, category }}>Read More...</Link>
               </section>
             </ArticlePost>
           ))) : null}

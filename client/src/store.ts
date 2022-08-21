@@ -6,12 +6,10 @@ const rootReducer = combineReducers({
   [postsApi.reducerPath]: postsApi.reducer,
 });
 
-export const setupStore = (preloadedState?: PreloadedState<RootState>) => { 
-    return configureStore({
+export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
+  return configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) =>
-      // adding the api middleware enables caching, invalidation, polling and other features of `rtk-query`
-      getDefaultMiddleware().concat(postsApi.middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(postsApi.middleware),
     preloadedState,
   });
 };
