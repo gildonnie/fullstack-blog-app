@@ -6,10 +6,7 @@ export type Post = {
   };
 
 export type Api = {
-    _id: number;
-    title: string;
-    content: string;
-    category?: string;
+  [key:string]: Array<Post>;
   };
 
 export type CategoryData = {

@@ -1,10 +1,10 @@
 import React from 'react';
-import PostData from '../components/PostData';
+import Posts from '../components/Posts';
 
 function Home() {
   return (
     <div className="home">
-      <PostData />
+      <Posts />
     </div>
   );
 }

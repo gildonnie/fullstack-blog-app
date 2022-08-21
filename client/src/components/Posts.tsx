@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Category from './Category';
-import { Post } from '../types';
+// import Category from './Category';
+// import { Post } from '../types';
+import { useGetPostsQuery } from '../services/api';
 import backgroundImg from './IMGs/background.jpg';
 
 const PostWrapper = styled.div`
@@ -58,17 +59,17 @@ const WrapperPost = styled.div`
   grid-template-columns: 1fr 1fr;
 
 `;
-function Posts({ posts }: { posts: Post[] }) {
+function Posts() {
+  const { data, error, isLoading } = useGetPostsQuery(undefined);
   return (
     <>
       <BackIMG><h1>JBD Blog</h1></BackIMG>
       <PostWrapper>
         <WrapperPost>
-          {posts.map(({ _id, title, content }: Post) => (
-
+          { data ? (data.posts.map(({ _id, title, content }) => (
             <ArticlePost>
               <h1>
-                <Link to={`/editpage/${_id}`} state={{ ...posts }}>
+                <Link to={`/editpage/${_id}`} state={{ ...data.posts }}>
                   {title}
                 </Link>
               </h1>
@@ -77,12 +78,12 @@ function Posts({ posts }: { posts: Post[] }) {
                   {content.slice(0, 200)}
                   ...
                 </p>
-                <Link to={`/fullPost/${_id}`} state={{ ...posts }}>Read More...</Link>
+                <Link to={`/fullPost/${_id}`} state={{ ...data.posts }}>Read More...</Link>
               </section>
             </ArticlePost>
-          ))}
+          ))) : null}
         </WrapperPost>
-        <Category />
+        {/* <Category /> */}
       </PostWrapper>
     </>
   );
