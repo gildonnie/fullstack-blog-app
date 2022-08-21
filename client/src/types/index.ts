@@ -4,7 +4,15 @@ export type Post = {
     content: string;
     category?: string;
   };
-  export type CategoryData = {
+
+export type Api = {
+    _id: number;
+    title: string;
+    content: string;
+    category?: string;
+  };
+
+export type CategoryData = {
     _id: number;
     category?: string;
   };
