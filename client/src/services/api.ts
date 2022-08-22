@@ -32,8 +32,17 @@ export const postsApi = createApi({
         method: 'DELETE',
       }),
     }),
+    addPost: builder.mutation<Api, Omit<Api, 'id'>>({
+      query: (body) => ({
+        url: 'post',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
 // Export hooks for usage in functional components
-export const { useGetPostsQuery, useUpdatePostMutation, useDeletePostMutation } = postsApi;
+export const {
+  useGetPostsQuery, useUpdatePostMutation, useDeletePostMutation, useAddPostMutation,
+} = postsApi;

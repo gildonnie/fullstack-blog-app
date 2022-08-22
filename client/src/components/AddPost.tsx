@@ -1,8 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
 import styled from 'styled-components';
-import { Post } from '../types';
+import { useAddPostMutation } from '../services/api';
 
 const Wrap = styled.div`
   display: flex;
@@ -30,24 +29,19 @@ function AddPost() {
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [category, setCategory] = useState('');
+  const [addPost] = useAddPostMutation();
   const navigate = useNavigate();
 
   const handleFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      const { data } = await axios.post<Post>(
-        'http://localhost:5000/blog/post',
-        { title: `${title}`, content: `${content}`, category: `${category}` },
-      );
-      navigate('/', { replace: true });
-      return data;
-    } catch (error) {
-      if (axios.isAxiosError(error)) {
-        console.log('error message: ', error.message);
-        return error.message;
-      }
-      return 'An unexpected error occurred';
-    }
+    const post = {
+      title,
+      content,
+      category,
+    };
+    addPost(post);
+    navigate('/', { replace: true });
+    window.location.reload(false);
   };
   return (
     <form onSubmit={handleFormSubmit}>
