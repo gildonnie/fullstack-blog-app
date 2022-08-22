@@ -8,7 +8,6 @@ import AddPostPage from './pages/AddPostPage';
 import Header from './components/Header';
 import EditPage from './pages/EditPage';
 import GlobalStyle from './globalStyles';
-import Footer from './components/Footer';
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         <Route path="/editpage/:id" element={<EditPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
-      <Footer />
     </>
   );
 }

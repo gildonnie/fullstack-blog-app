@@ -12,11 +12,8 @@ const GlobalStyle = createGlobalStyle`
       color: #EFF3F4
     }
   }
-  .button {
-    
-  }
   input {
-    background-color: #202327;
+    background-color: black;
     border: solid 1px gray;
     margin-left: 10px;
     color: white;
@@ -25,6 +22,14 @@ const GlobalStyle = createGlobalStyle`
     background-color: #202327;
     border: solid 1px  black;
     color: white;
+  }
+  button {
+    background: black;
+    color: #5d858f;
+    border: solid 1px gray;
+    border-radius: 6px;
+    padding: px;
+
   }
 `;
 

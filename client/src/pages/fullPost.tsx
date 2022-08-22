@@ -35,7 +35,9 @@ function fullPost() {
 
   return (
     <FullPost>
-      <h1>{title}</h1>
+      <h1>
+        {title}
+      </h1>
       <p>{content}</p>
       <p>{category}</p>
     </FullPost>
