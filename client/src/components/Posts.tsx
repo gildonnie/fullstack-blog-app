@@ -52,7 +52,7 @@ const BackIMG = styled.div`
   text-align: center;
   h1 {
     margin-top: 0;
-    padding-top 23rem;
+    padding-top: 23rem;
     font-size: 60px;
     font-family: 'Cutive Mono', monospace;
   }
