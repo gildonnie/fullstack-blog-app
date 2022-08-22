@@ -60,7 +60,8 @@ const WrapperPost = styled.div`
 
 `;
 function Posts() {
-  const { data, error, isLoading } = useGetPostsQuery(undefined);
+  const { data } = useGetPostsQuery(undefined);
+  // const { data, error, isLoading } = useGetPostsQuery(undefined);
   return (
     <>
       <BackIMG><h1>JBD Blog</h1></BackIMG>
