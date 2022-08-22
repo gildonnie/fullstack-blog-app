@@ -1,6 +1,6 @@
+/* eslint-disable no-param-reassign */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import type { RootState } from './index';
-import type { RootState } from './index';
 
 type categoryTypes = {
   Category: string;
