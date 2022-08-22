@@ -53,8 +53,8 @@ function AddPost() {
     <form onSubmit={handleFormSubmit}>
       <Wrap>
         <label htmlFor="AddTitle">
-          Title
           <input
+            placeholder="Title"
             id="AddTitle"
             type="text"
             value={title}
@@ -64,8 +64,8 @@ function AddPost() {
 
         <textarea value={content} placeholder="Add your content here" onChange={(e) => setContent(e.target.value)} />
         <label htmlFor="AddCategory">
-          Category
           <input
+            placeholder="Category"
             id="AddCategory"
             type="text"
             value={category}

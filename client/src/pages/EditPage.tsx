@@ -12,6 +12,8 @@ align-content: center;
 align-items: center;
 h1 {
   text-align: center;
+  font-size: 25px;
+  margin-bottom: 0px;
 }
 textarea {
   min-width: 80%;
@@ -23,6 +25,16 @@ label {
     border-radius: 3px;
   }
 }
+button {
+  margin: 3px;
+}
+`;
+const Buttons = styled.div`
+text-align: center;
+margin-left: 1rem;
+  button {
+    margin-left: 2rem;
+  }
 `;
 function EditPage() {
   const { id } = useParams();
@@ -89,10 +101,12 @@ function EditPage() {
   };
 
   return (
-    <EditWrap>
-      <form>
+
+    <form>
+      <EditWrap>
+        <h1>Edit</h1>
         <label htmlFor="Title">
-          Edit
+          Title
           <input
             id="Title"
             type="text"
@@ -100,16 +114,13 @@ function EditPage() {
             onChange={changeTitle}
           />
         </label>
-        <label htmlFor="Content">
-          Content
-          <textarea
-            id="Content"
-            value={content}
-            onChange={changeContent}
-          />
-        </label>
+        <textarea
+          id="Content"
+          value={content}
+          onChange={changeContent}
+        />
         <label htmlFor="Category">
-          Edit
+          Category
           <input
             id="Category"
             type="text"
@@ -117,10 +128,13 @@ function EditPage() {
             onChange={changeCategory}
           />
         </label>
-      </form>
-      <button type="submit" onClick={updatePost}>Update</button>
-      <button type="submit" onClick={deletePost}>Delete</button>
-    </EditWrap>
+      </EditWrap>
+      <Buttons>
+        <button type="submit" onClick={updatePost}>Update</button>
+        <button type="submit" onClick={deletePost}>Delete</button>
+      </Buttons>
+    </form>
+
   );
 }
 

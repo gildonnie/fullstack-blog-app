@@ -30,8 +30,8 @@ const Categorywrapper = styled.div`
   }
   button {
     margin-top: 1rem;
-    display: flex;
-    margin-left: 8rem;
+    margin-left: .5rem;
+    text-align: center
   }
 `;
 
@@ -80,7 +80,7 @@ function Category() {
           })}
         </select>
         <button type="button" onClick={viewCategoryPosts}>
-          View Category
+          View
         </button>
       </div>
       <div className="newCatagory">
@@ -91,7 +91,7 @@ function Category() {
           onChange={(e) => setNewCategory(e.target.value)}
         />
         <button type="button" onClick={addNew}>
-          Add Category
+          Add
         </button>
       </div>
     </Categorywrapper>

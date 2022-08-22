@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Category from './Category';
 import { Post } from '../types';
 import backgroundImg from './IMGs/background.jpg';
+import Footer from './Footer';
 
 const PostWrapper = styled.div`
   display: grid;
@@ -22,6 +23,9 @@ const ArticlePost = styled.article`
   position: relative;
   h1 {
     font-family: 'Cutive Mono', monospace;
+  }
+  h2 {
+    font-size: 12px;
   }
   .readmore {
     display: felx;
@@ -64,7 +68,9 @@ function Posts({ posts }: { posts: Post[] }) {
       <BackIMG><h1>JBD Blog</h1></BackIMG>
       <PostWrapper>
         <WrapperPost>
-          {posts.map(({ _id, title, content }: Post) => (
+          {posts.map(({
+            _id, title, content, category,
+          }: Post) => (
 
             <ArticlePost>
               <h1>
@@ -72,6 +78,13 @@ function Posts({ posts }: { posts: Post[] }) {
                   {title}
                 </Link>
               </h1>
+              <h2>
+                |
+                {' '}
+                {category}
+                {' '}
+                |
+              </h2>
               <section className="readmore" key={_id}>
                 <p>
                   {content.slice(0, 200)}
@@ -84,6 +97,7 @@ function Posts({ posts }: { posts: Post[] }) {
         </WrapperPost>
         <Category />
       </PostWrapper>
+      <Footer />
     </>
   );
 }
